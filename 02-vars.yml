@@ -7,12 +7,12 @@
       ansible.builtin.debug:
         msg: value of URL is {{ URL }}
 
+  ### If try to print var which is not declared ,it throw error
+
     - name: Printing local variables
       ansible.builtin.debug:
         msg: value of URL is {{ URL }}
         vars:                           ### local variables: 
           URL: task.google.com
 
-
-### If try to print var which is not declared ,it throw error
 ### CLI Command>>file >>local >> global variables
