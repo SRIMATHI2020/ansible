@@ -3,8 +3,8 @@
   tasks:
     - name: Printing the shell module
         ansible.builtin.shell: uptime
-        register: OUT 
+          register: OUT 
 
     - name: Printing the shell module
         ansible.builtin.debug:
-        msg: "{{ OUT }}"
+          msg: "{{ OUT }}"
