@@ -14,8 +14,14 @@
         msg: value of URL is {{ URL }}
       vars:                           ### local variables: 
           URL: task.google.com
+
+
     - name: Printing the var name
       ansible.builtin.debug:
         msg: Name of the car is {{ CARNAME }}
+
+    - name: Demo to show quotes
+      ansible.builtin.debug:
+        msg: "{{ CARNAME }}"
 
 ### CLI Command>>file >>local >> global variables
