@@ -10,9 +10,9 @@
         msg: "{{ OUT.stdout }}"
 
     - name: Declare variable
-        set_fact:
-          STATUSCODE: "{{ OUT.rc }}"
+      set_fact:
+        STATUSCODE: "{{ OUT.rc }}"
     
     - name: Priting the uptime 
-       ansible.builtin.debug:
-         msg: Uptime command exit code is  {{ STATUSCODE }}
+      ansible.builtin.debug:
+        msg: Uptime command exit code is  {{ STATUSCODE }}
