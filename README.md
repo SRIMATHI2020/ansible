@@ -35,3 +35,9 @@ Rescue - executed if any of the taks in the blocks fail
 ansible-playbook robot-dryrun.yaml -e COMPONENT=mongodb -e ansible_user=centos -e ansible_password=DevOps321 -e ENV=qa
 
 
+### Playboook
+
+Playbook -- list of plays
+Play     -- list of tasks
+Task     -- list of actions 
+
