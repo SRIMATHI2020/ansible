@@ -14,5 +14,5 @@
           STATUSCODE: "{{ OUT.rc }}"
     
     - name: Priting the uptime 
-       ansible.builtin.debug: uptime
+       ansible.builtin.debug:
          msg: Uptime command exit code is  {{ STATUSCODE }}
