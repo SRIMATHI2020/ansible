@@ -4,6 +4,9 @@
     URL: play.google.com
   vars_files:
     - dev-vars.yml
+  vars_prompt:
+    - name: URLName
+      prompt: Enter the URL name
   tasks:
     - name: Printing the var name
       ansible.builtin.debug:
@@ -26,4 +29,8 @@
       ansible.builtin.debug:
         msg: "{{ CARNAME }}"
 
-### CLI Command>>file >>local >> global variables
+    - name: Prompt variables
+      ansible.builtin.debug:
+        msg: URL from the prompt variable is {{ URLName }}"
+
+### CLI Command >>local >> file >> global variables

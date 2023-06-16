@@ -21,7 +21,6 @@ variables --should be passed by -e
 
 ### ansible-pull
 
-
 ansible-pull -U urlname.git playbookName.yml -e COMPONENT=componentName
 
 
@@ -41,3 +40,6 @@ Playbook -- list of plays
 Play     -- list of tasks
 Task     -- list of actions 
 
+
+### Variable Precendence
+CLI Command variables >>local variables>> file variables>> global variables
