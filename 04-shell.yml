@@ -8,3 +8,9 @@
     - name: Printing the out variable
       ansible.builtin.debug:
         msg: "{{ OUT.stdout }}"
+
+     - name: Printing the out variable
+        set_fact:
+          my_variable:
+            name: "john More"
+            age: 30"
