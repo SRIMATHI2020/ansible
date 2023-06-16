@@ -9,8 +9,10 @@
       ansible.builtin.debug:
         msg: "{{ OUT.stdout }}"
 
-     - name: Printing the out variable
+    - name: Declare variable
         set_fact:
-          my_variable:
-            name: "john More"
-            age: 30"
+          STATUSCODE: "{{ OUT.rc }}"
+    
+    - name: Priting the uptime 
+       ansible.builtin.debug: uptime
+         msg: Uptime command exit code is  {{ STATUSCODE }}
