@@ -2,6 +2,8 @@
   hosts: prod
   vars:                                 ### global variables:can ne accessed by all tasks of the play
     URL: play.google.com
+  vars_files:
+    - dev-vars.yml
   tasks:
     - name: Printing the var name
       ansible.builtin.debug:
