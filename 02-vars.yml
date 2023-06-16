@@ -1,5 +1,5 @@
 - name: Demo on using var on playbooks
-  hosts: all
+  hosts: prod
   vars:                                 ### global variables:can ne accessed by all tasks of the play
     URL: play.google.com
   tasks:
