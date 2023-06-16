@@ -1,0 +1,6 @@
+- name: Demo on shell module
+    hosts: prod
+    tasks:
+    - name: Printing the shell module
+      ansible.builtin.shell: uptime
+      register: OUT 
