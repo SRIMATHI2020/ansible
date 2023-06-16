@@ -1,0 +1,10 @@
+- name: Check Tomcat i srunning & start 
+  hosts: prod
+  tasks: 
+    - name: checking TOMCAT STATUSCODE
+      ansible.builtin.shell: ps -ef | grep java | grep -v grep
+      register: OUT
+
+    - name: starting TOMCAT
+      ansible.builtin.debug:
+      msg: Starting TOMCAT
