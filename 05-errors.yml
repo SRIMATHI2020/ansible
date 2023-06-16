@@ -4,6 +4,7 @@
     - name: checking TOMCAT STATUSCODE
       ansible.builtin.shell: ps -ef | grep java | grep -v grep
       register: OUT
+      ignore_errors: yes
 
     - name: starting TOMCAT
       ansible.builtin.debug:
