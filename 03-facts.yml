@@ -4,3 +4,8 @@
     - name: Printing the facts
       ansible.builtin.debug:
         msg: ansible_distribution is {{ ansible_distribution }}
+
+        
+    - name: Printing the Macaddress of the machine
+      ansible.builtin.debug:
+        msg: Mac_address is {{ Mac_address }}
