@@ -12,7 +12,7 @@
     - name: Printing local variables
       ansible.builtin.debug:
         msg: value of URL is {{ URL }}
-        vars:                           ### local variables: 
+      vars:                           ### local variables: 
           URL: task.google.com
 
 ### CLI Command>>file >>local >> global variables
