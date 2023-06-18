@@ -20,7 +20,7 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-- name: Copying the proxy config
+- name: Copying the proxy configuration
   ansible.builtin.copy:
   src: roboshop.conf
   dest: /etc/nginx/default.d/roboshop.conf
