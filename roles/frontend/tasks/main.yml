@@ -1,7 +1,7 @@
 - name: Installing nginx
   ansible.builtin.package:
     name: nginx
-    stste: present
+    state: present
 
 - name: starting nginx
   ansible.builtin.systemd:
