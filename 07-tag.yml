@@ -1,0 +1,12 @@
+- name: Demo on using facts
+  hosts: prod
+  tasks:
+    - name: This is a frontend task
+      ansible.builtin.debug:
+        msg: Installing Front-end
+      tags: frontend
+
+    - name: Starting frontend task
+      ansible.builtin.debug:
+        msg: Starting Front-end
+      tags: frontend
