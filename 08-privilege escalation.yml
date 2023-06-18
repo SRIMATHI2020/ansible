@@ -1,10 +1,10 @@
-- name: Demo on privelege escalation
+- name: Demo on privilege escalation
   hosts: prod
   become: yes
   tasks:
-    - name: printing privelege escalation
+    - name: printing privilege escalation
       ansible.builtin.shell:
       register: OUT 
-    - name: printing privelege escalation
+    - name: printing privilege escalation
       ansible.builtin.debug:
       msg: "{{ OUT.stdout }}" 
