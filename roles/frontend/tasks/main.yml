@@ -22,8 +22,8 @@
 
 - name: Copying the proxy configuration
   ansible.builtin.copy:
-  src: roboshop.conf
-  dest: /etc/nginx/default.d/roboshop.conf
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
    
 - name: Starting nginx
   ansible.builtin.systemd:
