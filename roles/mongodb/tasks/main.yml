@@ -8,8 +8,8 @@
     name: mongodb-org
     state: present
 
-- - name: Updating the Mongodb config to public
-    ansible.builtin.replace:
+- name: Updating the Mongodb config to public
+  ansible.builtin.replace:
     path: /etc/mongodb.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
