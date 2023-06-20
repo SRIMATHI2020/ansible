@@ -5,5 +5,5 @@
 
 - name: Installing mongodb
   ansible.builtin.package:
-    name: mongodb.org
+    name: mongodb-org
     state: present
