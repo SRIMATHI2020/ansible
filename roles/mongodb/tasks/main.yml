@@ -1,3 +1,9 @@
-- name: Print hello from play1
-  ansible.builtin.debug:
-        msg: Hello from play1 of task1
+- name: configuring the mongodb rep
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+- name: Installing mongodb
+  ansible.builtin.package:
+    name: mongodb.org
+    state: present
