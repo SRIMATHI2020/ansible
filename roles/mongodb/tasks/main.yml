@@ -28,10 +28,9 @@
 
 - name: Injecting MongoDB catalogue schema
   community.mongodb.mongodb_shell:
-    file: "/tmp/${{ COMPONENT }}-main/catalogue.js"
+    file: "/tmp/${{ COMPONENT }}-main/{{ item }}.js"
     idempotent: yes
+  item:
+     - catalogue
+     - users
 
-- name: Injecting MongoDB user schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/${{ COMPONENT }}-main/users.js"
-    idempotent: yes
