@@ -1,0 +1,50 @@
+- name: Creating EC2 for dryrun
+  hosts: local host
+  gather_facts: False
+  vars:
+     instance_type: "t3.micro"
+     security_group: "sg-070d8172c8f2c5c81"
+     image: "ami-0b1992df957b7cf82"
+     region: us-east-1
+  tasks:
+    - name: Launch instance
+      amazon.aws.ec2:
+         count: 1
+         group_id: "{{ security_group }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+         instance_tags:
+          Name: ansible-dryrun
+      register: ec2
+
+    - name: Add new instance to host group
+      add_host:
+        hostname: "{{ item.public_ip }}"
+        groupname: launched
+      loop: "{{ ec2.instances }}"
+
+    - name: Wait for SSH to come up
+      delegate_to: "{{ item.public_dns_name }}"
+      wait_for_connection:
+        delay: 60
+        timeout: 320
+      loop: "{{ ec2.instances }}"
+
+    - name: Set a INSTANCE_ID variable
+      set_fact:
+        INSTANCE_ID: "{{ ec2. }}"
+
+- name: Run Role to Test
+      hosts: launched
+      become: true
+      gather_facts: yes
+      tasks:
+        - name: set the facts per host
+          set_fact:
+          INSTANCE_ID: "{{   }}"
+        - name: Import the role and Terminate the instance
+          block:
+
+
