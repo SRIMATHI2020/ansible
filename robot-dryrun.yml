@@ -19,7 +19,7 @@
           Name: ansible-dryrun
       register: ec2
 
-    - name: Add new instance to host group
+    - name: Adding instance to host group
       add_host:
         hostname: "{{ item.public_ip }}"
         groupname: launched
@@ -37,14 +37,25 @@
         INSTANCE_ID: "{{ ec2. }}"
 
 - name: Run Role to Test
-      hosts: launched
-      become: true
-      gather_facts: yes
-      tasks:
-        - name: set the facts per host
-          set_fact:
+  hosts: launched
+  become: true
+  gather_facts: yes
+  tasks:
+     - name: set the facts per host
+       set_fact:
           INSTANCE_ID: "{{   }}"
-        - name: Import the role and Terminate the instance
-          block:
+     - name: Import the role and Terminate the instance
+       block:
+            - name: Import the Role
+              import_role:
+                 name: "{{COMPONENT}}"
+       always:
+            - name: Terminate Instances that were previously launched
+              delegate_to: 127.0.0.1
+              amazon.aws.ec2:
+                 state: 'absent'
+                 instance_ids: '{{ INSTANCE_ID }}'
+                 region: US-east-1
+                   
 
 
