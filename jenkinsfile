@@ -7,6 +7,19 @@ pipeline {
         string(name: 'COMPONENT', defaultValue: 'mongodb' , description: 'enter the name of teh component')
     }
     stages {
+        stage( 'Ansible code scan') {
+            steps {
+                sh "echo Code scan Completed"
+            }
+        }
+
+        stage('Ansible Lint checks') {
+            when { branch pattern: "feature-.*" comparator: "REGEXP"
+            steps {
+                sh "echo Lint check completed"
+            }        
+        }
+        }
         stage('Ansible Dry Run') {
             steps {
                 sh '''
